@@ -5,8 +5,10 @@
 4. What is Event Delegation in JavaScript? Why is it useful?
 5. What is the difference between preventDefault() and stopPropagation() methods?
 
-
+.
+.
 Ans to the Q/no -1 
+
 
 The getElementById, getElementsByClassName, and querySelector / querySelectorAll are all DOM methods in Javascript programming.
 getElementById() selects only a single element which is an Id attribute like <div id="main" class="box"></div>
@@ -18,7 +20,8 @@ div class="box">Boien
 
 The querySelector() selects the first element that matches a CSS selector like a class name, but uses ".box", and on the other hand querySelectorAll() selects all the elements with the   same class in the same way
 
-
+.
+.
 Ans to the Q/no-2
 
 
@@ -33,7 +36,8 @@ newDiv.id = "myId";                          // adds an id
  const parent = document.getElementById("parentDiv");
 parent.appendChild(newDiv); // adds newDiv at the end of parentDiv
 
-
+.
+.
 Ans to the Q/no-3
 
 
@@ -54,7 +58,8 @@ The event first gets the child’s listener - "Child clicked"
 Then it gets up to the parent - "Parent clicked"
 
 
-
+.
+.
 Ans to the Q/no-4
 
 
@@ -82,7 +87,8 @@ Instead of using dozens or hundreds of listeners, only attaching one listener to
 Makes it easy to code and good for performance.
 
 
-
+.
+.
 Ans to the Q/no-5
 
 
