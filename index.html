@@ -53,19 +53,21 @@
       </div>
       <div class="flex gap-[20px] max-sm:w-full max-sm:justify-between">
         <!-- heart -->
-        <div class="flex gap-[10px] p-[12px]">
-          <h3 class="inter font-black text-[16px]">0</h3>
+        <div class="flex gap-[10px] p-[12px] items-center">
+          <h3 class="inter font-black text-[16px] likeNumber">0</h3>
           <img src="assets/heart.png" alt="" class="w-[30px] h-[30px]" />
         </div>
-        <!-- star -->
+
+        <!-- Coins -->
         <div class="flex gap-[10px] p-[12px]">
-          <h3 class="inter font-black text-[16px]">100</h3>
+          <h3 id="coin" class="inter font-black text-[16px]">100</h3>
           <img src="assets/coin.png" alt="" class="w-[30px] h-[30px]" />
         </div>
+        <!-- how much copied -->
         <button
           class="inter bg-[#00A63E] hover:bg-[#154734] text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 w-[127px] h-[52px]"
         >
-          <span>2</span> Copied
+          <span id="copy-count">0</span> Copy
         </button>
       </div>
     </section>
@@ -97,7 +99,7 @@
       >
         <!-- NEN card -->
         <div
-          class="flex flex-col items-start gap-4 bg-white w-full shadow-lg p-[32px] rounded-[12px]"
+          class="copy-card flex flex-col items-start gap-4 bg-white w-full shadow-lg p-[32px] rounded-[12px]"
         >
           <!--icon heart -->
           <div class="flex items-center justify-between w-full">
@@ -110,7 +112,10 @@
                 class="w-[32px] h-[32px]"
               />
             </div>
-            <i class="fa-regular fa-heart text-xl"></i>
+            <!-- Js function by clicking heart -->
+            <i
+              class="fa-regular fa-heart text-xl text-gray-500 hover:text-red-500 transition-colors duration-200 active:text-red-500 heartClick"
+            ></i>
           </div>
 
           <!-- Text section -->
@@ -121,7 +126,7 @@
             <h3 class="roboto font-normal text-[18px] text-[#5C5C5C] mb-[15px]">
               National Emergency
             </h3>
-            <h1 class="roboto font-bold text-[32px]">999</h1>
+            <h1 class="copy-number roboto font-bold text-[32px]">999</h1>
             <h4 class="hind-madurai font-normal text-[18px] text-[#5C5C5C]">
               All
             </h4>
@@ -129,26 +134,28 @@
 
           <!-- button -->
           <div class="flex gap-2 w-full">
-            <!-- Copy button -->
+            <!-- Copying button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg"
+              class="btn-copy flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg active:transition-colors active:duration-40 active:bg-[#D3D3D3]"
             >
               <i class="fa-regular fa-copy"></i>
               <span class="roboto text-[16px]">Copy</span>
             </button>
 
-            <!-- Call button -->
+            <!-- Calling button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              class="btn-click flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              service="National Emergency"
+              number="999"
             >
               <i class="fa-solid fa-phone"></i>
-              <span>Call</span>
+              <span class="roboto text-[16px] font-normal">Call</span>
             </button>
           </div>
         </div>
         <!-- Police card -->
         <div
-          class="flex flex-col items-start gap-4 bg-white w-full shadow-lg p-[32px] rounded-[12px]"
+          class="copy-card flex flex-col items-start gap-4 bg-white w-full shadow-lg p-[32px] rounded-[12px]"
         >
           <!--icon heart -->
           <div class="flex items-center justify-between w-full">
@@ -157,7 +164,9 @@
             >
               <img src="assets/police.png" alt="" class="w-[32px] h-[32px]" />
             </div>
-            <i class="fa-regular fa-heart text-xl"></i>
+            <i
+              class="fa-regular fa-heart text-xl text-gray-500 hover:text-red-500 transition-colors duration-20 active:text-red-500 heartClick"
+            ></i>
           </div>
 
           <!-- Text section -->
@@ -168,7 +177,7 @@
             <h3 class="roboto font-normal text-[18px] text-[#5C5C5C] mb-[15px]">
               Police
             </h3>
-            <h1 class="roboto font-bold text-[32px]">999</h1>
+            <h1 class="copy-number roboto font-bold text-[32px]">999</h1>
             <h4 class="hind-madurai font-normal text-[18px] text-[#5C5C5C]">
               All
             </h4>
@@ -178,7 +187,7 @@
           <div class="flex gap-2 w-full">
             <!-- Copy button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg"
+              class="btn-copy flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg active:transition-colors active:duration-40 active:bg-[#D3D3D3]"
             >
               <i class="fa-regular fa-copy"></i>
               <span class="roboto text-[16px]">Copy</span>
@@ -186,16 +195,18 @@
 
             <!-- Call button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              class="btn-click flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              service="Police"
+              number="999"
             >
               <i class="fa-solid fa-phone"></i>
-              <span>Call</span>
+              <span class="roboto text-[16px] font-normal">Call</span>
             </button>
           </div>
         </div>
         <!-- Fire card -->
         <div
-          class="flex flex-col items-start gap-4 bg-white w-full shadow-lg p-[32px] rounded-[12px]"
+          class="copy-card flex flex-col items-start gap-4 bg-white w-full shadow-lg p-[32px] rounded-[12px]"
         >
           <!--icon heart -->
           <div class="flex items-center justify-between w-full">
@@ -208,7 +219,9 @@
                 class="w-[32px] h-[32px]"
               />
             </div>
-            <i class="fa-regular fa-heart text-xl"></i>
+            <i
+              class="fa-regular fa-heart text-xl text-gray-500 hover:text-red-500 transition-colors duration-20 active:text-red-500 heartClick"
+            ></i>
           </div>
 
           <!-- Text section -->
@@ -219,7 +232,7 @@
             <h3 class="roboto font-normal text-[18px] text-[#5C5C5C] mb-[15px]">
               Fire Service
             </h3>
-            <h1 class="roboto font-bold text-[32px]">999</h1>
+            <h1 class="copy-number roboto font-bold text-[32px]">999</h1>
             <h4 class="hind-madurai font-normal text-[18px] text-[#5C5C5C]">
               All
             </h4>
@@ -229,7 +242,7 @@
           <div class="flex gap-2 w-full">
             <!-- Copy button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg"
+              class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg active:transition-colors active:duration-40 active:bg-[#D3D3D3] btn-copy"
             >
               <i class="fa-regular fa-copy"></i>
               <span class="roboto text-[16px]">Copy</span>
@@ -237,16 +250,18 @@
 
             <!-- Call button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              class="btn-click flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              service="Fire Service"
+              number="999"
             >
               <i class="fa-solid fa-phone"></i>
-              <span>Call</span>
+              <span class="roboto text-[16px] font-normal">Call</span>
             </button>
           </div>
         </div>
         <!-- ambulance card -->
         <div
-          class="flex flex-col items-start gap-4 bg-white w-full p-[32px] rounded-[12px] shadow-md"
+          class="copy-card flex flex-col items-start gap-4 bg-white w-full p-[32px] rounded-[12px] shadow-md"
         >
           <!--icon heart -->
           <div class="flex items-center justify-between w-full">
@@ -259,7 +274,9 @@
                 class="w-[32px] h-[32px]"
               />
             </div>
-            <i class="fa-regular fa-heart text-xl"></i>
+            <i
+              class="fa-regular fa-heart text-xl text-gray-500 hover:text-red-500 transition-colors duration-20 active:text-red-500 heartClick"
+            ></i>
           </div>
 
           <!-- Text section -->
@@ -270,7 +287,9 @@
             <h3 class="roboto font-normal text-[18px] text-[#5C5C5C] mb-[15px]">
               Ambulance
             </h3>
-            <h1 class="roboto font-bold text-[32px]">1994-999999</h1>
+            <h1 class="copy-number roboto font-bold text-[32px]">
+              1994-999999
+            </h1>
             <h4 class="hind-madurai font-normal text-[18px] text-[#5C5C5C]">
               Health
             </h4>
@@ -280,7 +299,7 @@
           <div class="flex gap-2 w-full">
             <!-- Copy button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg"
+              class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg active:transition-colors active:duration-40 active:bg-[#D3D3D3] btn-copy"
             >
               <i class="fa-regular fa-copy"></i>
               <span class="roboto text-[16px]">Copy</span>
@@ -288,16 +307,18 @@
 
             <!-- Call button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              class="btn-click flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              service="Ambulance"
+              number="1994-999999"
             >
               <i class="fa-solid fa-phone"></i>
-              <span>Call</span>
+              <span class="roboto text-[16px] font-normal">Call</span>
             </button>
           </div>
         </div>
         <!-- Women and child helpline -->
         <div
-          class="flex flex-col items-start gap-4 bg-white w-full p-[32px] rounded-[12px] shadow-md"
+          class="copy-card flex flex-col items-start gap-4 bg-white w-full p-[32px] rounded-[12px] shadow-md"
         >
           <!--icon heart -->
           <div class="flex items-center justify-between w-full">
@@ -310,7 +331,9 @@
                 class="w-[32px] h-[32px]"
               />
             </div>
-            <i class="fa-regular fa-heart text-xl"></i>
+            <i
+              class="fa-regular fa-heart text-xl text-gray-500 hover:text-red-500 transition-colors duration-20 active:text-red-500 heartClick"
+            ></i>
           </div>
 
           <!-- Text section -->
@@ -321,7 +344,7 @@
             <h3 class="roboto font-normal text-[18px] text-[#5C5C5C] mb-[15px]">
               Women & Child Helpline
             </h3>
-            <h1 class="roboto font-bold text-[32px]">109</h1>
+            <h1 class="copy-number roboto font-bold text-[32px]">109</h1>
             <h4 class="hind-madurai font-normal text-[18px] text-[#5C5C5C]">
               Help
             </h4>
@@ -331,24 +354,27 @@
           <div class="flex gap-2 w-full">
             <!-- Copy button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg"
+              class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg active:transition-colors active:duration-40 active:bg-[#D3D3D3] btn-copy"
             >
               <i class="fa-regular fa-copy"></i>
               <span class="roboto text-[16px]">Copy</span>
             </button>
 
             <!-- Call button -->
+
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              class="btn-click flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              service="Women & Child Helpline"
+              number="109"
             >
               <i class="fa-solid fa-phone"></i>
-              <span>Call</span>
+              <span class="roboto text-[16px] font-normal">Call</span>
             </button>
           </div>
         </div>
         <!-- Anti-corruption card -->
         <div
-          class="flex flex-col items-start gap-4 bg-white w-full p-[32px] rounded-[12px] shadow-md"
+          class="copy-card flex flex-col items-start gap-4 bg-white w-full p-[32px] rounded-[12px] shadow-md"
         >
           <!--icon heart -->
           <div class="flex items-center justify-between w-full">
@@ -361,7 +387,9 @@
                 class="w-[32px] h-[32px]"
               />
             </div>
-            <i class="fa-regular fa-heart text-xl"></i>
+            <i
+              class="fa-regular fa-heart text-xl text-gray-500 hover:text-red-500 transition-colors duration-20 active:text-red-500 heartClick"
+            ></i>
           </div>
 
           <!-- Text section -->
@@ -372,7 +400,7 @@
             <h3 class="roboto font-normal text-[18px] text-[#5C5C5C] mb-[15px]">
               Anti-Corruption
             </h3>
-            <h1 class="roboto font-bold text-[32px]">106</h1>
+            <h1 class="copy-number roboto font-bold text-[32px]">106</h1>
             <h4 class="hind-madurai font-normal text-[18px] text-[#5C5C5C]">
               Govt.
             </h4>
@@ -382,7 +410,7 @@
           <div class="flex gap-2 w-full">
             <!-- Copy button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg"
+              class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg active:transition-colors active:duration-40 active:bg-[#D3D3D3] btn-copy"
             >
               <i class="fa-regular fa-copy"></i>
               <span class="roboto text-[16px]">Copy</span>
@@ -390,16 +418,18 @@
 
             <!-- Call button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              class="btn-click flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              service="Anti-Corruption"
+              number="106"
             >
               <i class="fa-solid fa-phone"></i>
-              <span>Call</span>
+              <span class="roboto text-[16px] font-normal">Call</span>
             </button>
           </div>
         </div>
         <!-- electricity card -->
         <div
-          class="flex flex-col items-start gap-4 bg-white w-full p-[32px] rounded-[12px] shadow-md"
+          class="copy-card flex flex-col items-start gap-4 bg-white w-full p-[32px] rounded-[12px] shadow-md"
         >
           <!--icon heart -->
           <div class="flex items-center justify-between w-full">
@@ -412,7 +442,9 @@
                 class="w-[32px] h-[32px]"
               />
             </div>
-            <i class="fa-regular fa-heart text-xl"></i>
+            <i
+              class="fa-regular fa-heart text-xl text-gray-500 hover:text-red-500 transition-colors duration-20 active:text-red-500 heartClick"
+            ></i>
           </div>
 
           <!-- Text section -->
@@ -423,7 +455,7 @@
             <h3 class="roboto font-normal text-[18px] text-[#5C5C5C] mb-[15px]">
               Electricity Outage
             </h3>
-            <h1 class="roboto font-bold text-[32px]">16216</h1>
+            <h1 class="copy-number roboto font-bold text-[32px]">16216</h1>
             <h4 class="hind-madurai font-normal text-[18px] text-[#5C5C5C]">
               Electricity
             </h4>
@@ -433,7 +465,7 @@
           <div class="flex gap-2 w-full">
             <!-- Copy button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg"
+              class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg active:transition-colors active:duration-40 active:bg-[#D3D3D3] btn-copy"
             >
               <i class="fa-regular fa-copy"></i>
               <span class="roboto text-[16px]">Copy</span>
@@ -441,16 +473,18 @@
 
             <!-- Call button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              class="btn-click flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              service="Electricity Helpline"
+              number="16216"
             >
               <i class="fa-solid fa-phone"></i>
-              <span>Call</span>
+              <span class="roboto text-[16px] font-normal">Call</span>
             </button>
           </div>
         </div>
         <!-- brac card -->
         <div
-          class="flex flex-col items-start gap-4 bg-white w-full p-[32px] rounded-[12px] shadow-md"
+          class="copy-card flex flex-col items-start gap-4 bg-white w-full p-[32px] rounded-[12px] shadow-md"
         >
           <!--icon heart -->
           <div class="flex items-center justify-between w-full">
@@ -463,7 +497,9 @@
                 class="w-[32px] h-[32px]"
               />
             </div>
-            <i class="fa-regular fa-heart text-xl"></i>
+            <i
+              class="fa-regular fa-heart text-xl text-gray-500 hover:text-red-500 transition-colors duration-20 active:text-red-500 heartClick"
+            ></i>
           </div>
 
           <!-- Text section -->
@@ -472,7 +508,7 @@
             <h3 class="roboto font-normal text-[18px] text-[#5C5C5C] mb-[15px]">
               Brac
             </h3>
-            <h1 class="roboto font-bold text-[32px]">16445</h1>
+            <h1 class="copy-number roboto font-bold text-[32px]">16445</h1>
             <h4 class="hind-madurai font-normal text-[18px] text-[#5C5C5C]">
               NGO
             </h4>
@@ -482,7 +518,7 @@
           <div class="flex gap-2 w-full">
             <!-- Copy button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg"
+              class="btn-copy flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg active:transition-colors active:duration-40 active:bg-[#D3D3D3]"
             >
               <i class="fa-regular fa-copy"></i>
               <span class="roboto text-[16px]">Copy</span>
@@ -490,16 +526,18 @@
 
             <!-- Call button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              class="btn-click flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              service="Brac Helpline"
+              number="16445"
             >
               <i class="fa-solid fa-phone"></i>
-              <span>Call</span>
+              <span class="roboto text-[16px] font-normal">Call</span>
             </button>
           </div>
         </div>
         <!-- Rail card -->
         <div
-          class="flex flex-col items-start gap-4 bg-white w-full p-[32px] rounded-[12px] shadow-md"
+          class="copy-card flex flex-col items-start gap-4 bg-white w-full p-[32px] rounded-[12px] shadow-md"
         >
           <!--icon heart -->
           <div class="flex items-center justify-between w-full">
@@ -512,7 +550,9 @@
                 class="w-[32px] h-[32px]"
               />
             </div>
-            <i class="fa-regular fa-heart text-xl"></i>
+            <i
+              class="fa-regular fa-heart text-xl text-gray-500 hover:text-red-500 transition-colors duration-20 active:text-red-500 heartClick"
+            ></i>
           </div>
 
           <!-- Text section -->
@@ -523,7 +563,7 @@
             <h3 class="roboto font-normal text-[18px] text-[#5C5C5C] mb-[15px]">
               Bangladesh Railway
             </h3>
-            <h1 class="roboto font-bold text-[32px]">163</h1>
+            <h1 class="copy-number roboto font-bold text-[32px]">163</h1>
             <h4 class="hind-madurai font-normal text-[18px] text-[#5C5C5C]">
               Travel
             </h4>
@@ -533,7 +573,7 @@
           <div class="flex gap-2 w-full">
             <!-- Copy button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg"
+              class="btn-copy flex-1 flex items-center justify-center gap-2 bg-white hover:bg-[#D3D3D3] border border-gray-300 text-[#5C5C5C] font-normal p-2 rounded-lg active:transition-colors active:duration-40 active:bg-[#D3D3D3]"
             >
               <i class="fa-regular fa-copy"></i>
               <span class="roboto text-[16px]">Copy</span>
@@ -541,10 +581,12 @@
 
             <!-- Call button -->
             <button
-              class="flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              class="btn-click flex-1 flex items-center justify-center gap-2 bg-[#00A63E] hover:bg-[#154734] text-white font-medium p-2 rounded-lg"
+              service="Bangladesh Railway Helpline"
+              number="163"
             >
               <i class="fa-solid fa-phone"></i>
-              <span>Call</span>
+              <span class="roboto text-[16px] font-normal">Call</span>
             </button>
           </div>
         </div>
@@ -554,7 +596,7 @@
         class="mt-8 w-1/3 ml-0 mr-6 max-sm:w-full max-sm:mx-auto max-sm:px-5.5 max-sm:order-1 max-sm:mb-4 max-sm:mt-0"
       >
         <div
-          class="flex items-center justify-between gap-24 max-sm:items-center max-sm:gap-4"
+          class="flex items-center justify-between gap-24 max-sm:items-center max-sm:gap-4 mb-1"
         >
           <div class="flex items-center gap-2">
             <i class="fa-regular fa-clock text-xl text-[#5C5C5C]"></i>
@@ -563,12 +605,16 @@
             </h3>
           </div>
           <button
-            class="inter bg-[#00A63E] hover:bg-[#154734] text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 w-[114px] h-[52px] max-sm:w-[90px] max-sm:h-[40px] max-sm:text-sm"
+            class="clear-history inter bg-[#00A63E] hover:bg-[#154734] active:bg-[#154734] text-white font-semibold py-2 px-6 rounded-full transition-colors duration-300 w-[114px] h-[52px] max-sm:w-[90px] max-sm:h-[40px] max-sm:text-sm"
           >
             Clear
           </button>
         </div>
+        <ul id="call-history-list"></ul>
       </section>
     </section>
+
+    <!-- js link -->
+    <script src="script.js"></script>
   </body>
 </html>
