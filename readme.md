@@ -12,7 +12,7 @@ The getElementById, getElementsByClassName, and querySelector / querySelectorAll
 getElementById() selects only a single element which is an Id attribute like <div id="main" class="box"></div>
 On the other hand  getElementsByClassName() uses class's, thus it can select multiple  elements with the same class
 like <div class="box">tackklle</div>
-" <div class="box">Boien</div> ".
+<div class="box">Boien < /div>
 The querySelector() selects the first element that matches a CSS selector like a class name, but uses ".box", and on the other hand querySelectorAll() selects all the elements with the   same class in the same way
 
 
